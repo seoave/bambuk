@@ -1,14 +1,28 @@
 <?php
 $footer_menu_items = wp_get_nav_menu_items('main');
 $legal_menu_items = wp_get_nav_menu_items('legal');
+$custom_logo_id = get_theme_mod('custom_logo');
+$image = wp_get_attachment_image_src($custom_logo_id, 'full');
 ?>
 
 <footer id="colophon" class="site-footer footer">
     <div class="container">
         <div class="columns">
             <div class="column">
-                <a href="/" class="button">Home</a>
-                <a href="/" class="button">Socials</a>
+                <?php if (isset($image) && ! empty($image[0])): ?>
+                    <a class="footer-logo" href="/">
+                        <figure class="image is-128x128">
+                            <img src="<?php echo $image[0]; ?>" alt="">
+                        </figure>
+                    </a>
+
+                <?php endif; ?>
+
+                <ul class="socials">
+                    <li><a href="#">facebook</a></li>
+                    <li><a href="#">facebook</a></li>
+                    <li><a href="#">facebook</a></li>
+                </ul>
 
                 <?php
                 if ($legal_menu_items) {

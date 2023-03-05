@@ -28,14 +28,14 @@ $image = wp_get_attachment_image_src($custom_logo_id, 'full');
                     </a>
                 <?php endif; ?>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div id="navbarBasic" class="navbar-menu">
                 <div class="navbar-start">
 
                     <?php
