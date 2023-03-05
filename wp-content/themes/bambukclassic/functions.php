@@ -40,4 +40,5 @@ function setup_bambuk_theme_features()
 {
     add_theme_support('custom-logo');
     add_theme_support('post-thumbnails');
+    set_post_thumbnail_size(150, 150);
 }

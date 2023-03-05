@@ -1,5 +1,5 @@
 <?php
-add_action('init', 'bambuk_cpt_init');
+add_action('init', 'bambuk_cpt_init', 0);
 
 function bambuk_cpt_init()
 {
@@ -25,7 +25,7 @@ function bambuk_cpt_init()
             'name' => 'News & Media',
             'singular_name' => 'Article',
         ],
-        'hierarchical' => false,
+        'hierarchical' => true,
         'menu_icon' => 'dashicons-images-alt2',
         'menu_position' => 8,
         'public' => true,
