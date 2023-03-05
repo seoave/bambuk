@@ -19,3 +19,12 @@ ul.socials li {
 .acf-map img {
     max-width: inherit !important;
 }
+
+.social img {
+    max-width: 64px;
+}
+
+.card {
+    min-width: 30%;
+    min-height: 150px;
+}

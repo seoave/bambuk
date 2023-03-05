@@ -4,6 +4,7 @@ define('THEME_ROOT', get_template_directory());
 require_once THEME_ROOT . '/inc/register/post-types.php';
 require_once THEME_ROOT . '/inc/register/taxonomies.php';
 require_once THEME_ROOT . '/inc/acf-options.php';
+require_once THEME_ROOT . '/inc/shortcodes.php';
 
 function add_bambuk_theme_scripts_styles()
 {
@@ -34,21 +35,9 @@ if (! function_exists('bambuk_theme_register_nav_menu')) {
     add_action('after_setup_theme', 'bambuk_theme_register_nav_menu', 0);
 }
 
-add_theme_support('custom-logo');
-
-function bambuk_theme_custom_logo_setup()
+add_action('after_setup_theme', 'setup_bambuk_theme_features', 0);
+function setup_bambuk_theme_features()
 {
-    $defaults = array(
-        'height' => 100,
-        'width' => 400,
-        'flex-height' => true,
-        'flex-width' => true,
-        'header-text' => ['site-title', 'site-description'],
-        'unlink-homepage-logo' => true,
-    );
-    add_theme_support('custom-logo', $defaults);
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
 }
-
-add_action('after_setup_theme', 'bambuk_theme_custom_logo_setup');
-
-

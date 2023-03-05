@@ -18,11 +18,7 @@ $image = wp_get_attachment_image_src($custom_logo_id, 'full');
 
                 <?php endif; ?>
 
-                <ul class="socials">
-                    <li><a href="#">facebook</a></li>
-                    <li><a href="#">facebook</a></li>
-                    <li><a href="#">facebook</a></li>
-                </ul>
+                <?php echo do_shortcode('[bambuk_socials]'); ?>
 
                 <?php
                 if ($legal_menu_items) {

@@ -3,7 +3,6 @@
 Template Name: Contacts
 Template Post Type: page
 */
-$adresses = get_field('adresses', 'theme_options');
 
 get_header(); ?>
 
@@ -17,22 +16,6 @@ get_header(); ?>
                             <div class="entry-content">
                                 <?php
                                 the_content();
-                                if (! empty($adresses)):
-                                    foreach ($adresses as $adress) :
-                                        echo '<h4 class="is-size-2 is-bold">' . $adress['country'] . '</h4>';
-                                        foreach ($adress as $item) :
-                                            if (! empty($item) && is_array($item)):
-                                                echo "<ul>";
-                                                foreach ($item as $subItem) :
-                                                    echo '<li>' . $subItem['phone'] . '</li>';
-                                                endforeach;
-                                                echo '</ul>';
-                                            else:
-                                                echo "<p>$item</p>";
-                                            endif;
-                                        endforeach;
-                                    endforeach;
-                                endif;
 
                                 if (have_rows('adresses', 'theme_options')):
                                     while (have_rows('adresses', 'theme_options')) : the_row();
@@ -43,8 +26,19 @@ get_header(); ?>
                                         <p><?php the_sub_field('city') ?></p>
                                         <p><?php the_sub_field('country') ?></p>
                                         <p><?php the_sub_field('email') ?></p>
+
+                                        <?php $phones = get_sub_field('phones');
+                                        if (have_rows('phones')):
+                                            while (have_rows('phones')) : the_row();
+                                                $phone = get_sub_field('phone');
+                                                echo "<p>$phone</p>";
+                                            endwhile;
+                                        endif;
+                                        ?>
+
                                         <?php if ($location): ?>
                                             <div class="acf-map" data-zoom="16">
+                                                <p>Map will be here</p>
                                                 <div class="marker"
                                                      data-lat="<?php echo esc_attr($location['lat']); ?>"
                                                      data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
@@ -52,6 +46,8 @@ get_header(); ?>
                                         <?php endif; ?>
                                     <?php endwhile;
                                 endif; ?>
+
+                                <?php echo do_shortcode('[bambuk_socials]'); ?>
 
                             </div>
                         </article>
