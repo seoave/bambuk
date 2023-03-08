@@ -6,6 +6,7 @@ Template Post Type: page
 $post_type = 'news-media';
 $news = 'news';
 $medias = 'medias';
+$per_page = 1;
 
 get_header(); ?>
 
@@ -21,11 +22,18 @@ get_header(); ?>
             </h3>
 
             <div class="news-list is-flex is-flex-wrap-wrap is-justify-content-flex-start">
-                <?php show_three_latest_posts($post_type, $news); ?>
+                <?php show_three_latest_posts($post_type, $news, $per_page); ?>
             </div>
 
             <div class="has-text-centered mt-6 mb-6">
-                <button id="more-news" data-post='news' class="button">Load more news</button>
+                <button id="more-news"
+                        data-post='<?php echo $post_type; ?>'
+                        data-term='<?php echo $news; ?>'
+                        data-page='<?php echo $per_page; ?>'
+                        class="button load-more-posts"
+                >
+                    Load more news
+                </button>
             </div>
 
 
@@ -33,12 +41,19 @@ get_header(); ?>
                 <?php echo $medias; ?>
             </h3>
             <div class="medias-list is-flex is-flex-wrap-wrap is-justify-content-flex-start">
-                <?php show_three_latest_posts($post_type, $medias); ?>
+                <?php show_three_latest_posts($post_type, $medias, $per_page); ?>
             </div>
 
 
             <div class="has-text-centered mt-6 mb-6">
-                <button id="more-medias" data-post="medias" class="button">Load more medias</button>
+                <button id="more-medias"
+                        data-post='<?php echo $post_type; ?>'
+                        data-term='<?php echo $medias; ?>'
+                        data-page='<?php echo $per_page; ?>'
+                        class="button load-more-posts"
+                >
+                    Load more medias
+                </button>
             </div>
 
 
